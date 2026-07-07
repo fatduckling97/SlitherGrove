@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="SlitherGrove.vcxproj" Id="d4cccccc-c635-4c46-8b87-179becfd5885" />
+</Solution>
