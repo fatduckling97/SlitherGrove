@@ -29,5 +29,11 @@ private:
 	Apple				m_apple;
 
 	int					m_score;
+
+	sf::Font			m_font;
+	sf::Text			m_scoreText;
+	sf::Text			m_gameOverText;
+	sf::Text			m_restartCommandText;
+
 	bool				m_gameOver;
 };
