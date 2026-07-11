@@ -10,6 +10,8 @@ A Snake game built with C++ and SFML 3.1.0
 - Wall collision
 - Self collision
 - Game Over state
+- Score display
+- Restart button (R button to restart if game over)
 
 ## Controls
 
@@ -23,8 +25,10 @@ A Snake game built with C++ and SFML 3.1.0
 
 ## Planned Features
 
-- Score display
 - Pixel art graphics
 - Sound effects
-- Restart button
 - Main menu
+
+## Screenshots
+<img width="1596" height="948" alt="Screenshot 2026-07-11 190542" src="https://github.com/user-attachments/assets/66f98e87-992a-479d-8db9-2fa9a337dcfb" />
+<img width="1595" height="965" alt="Screenshot 2026-07-11 190554" src="https://github.com/user-attachments/assets/a333a474-161e-45c1-babe-f4e1eb83c384" />
