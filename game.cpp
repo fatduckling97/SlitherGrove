@@ -3,8 +3,8 @@
 
 Game::Game()
 	: m_tileSize(32)
-	, m_boardWidth(50)
-	, m_boardHeight(30)
+	, m_boardWidth(25)
+	, m_boardHeight(18)
 	, m_moveDelay(0.15f)
 	, m_window(sf::VideoMode(
 		sf::Vector2u(
@@ -17,22 +17,23 @@ Game::Game()
 	, m_scoreText(m_font)
 	, m_gameOverText(m_font)
 	, m_restartCommandText(m_font)
+	, m_background(m_tileSize, m_boardWidth, m_boardHeight)
 {
-	if (!m_font.openFromFile("C:\\Users\\fcel2\\source\\repos\\SlitherGrove\\nintendo.ttf"))
+	if (!m_font.openFromFile("src\\nintendo.ttf"))
 	{
 		std::cerr << "Error load nintendo.ttf file!" << std::endl;
 		exit(-1);
 	}
 
 	m_scoreText.setFont(m_font);
-	m_scoreText.setCharacterSize(24);
+	m_scoreText.setCharacterSize(18);
 	m_scoreText.setFillColor(sf::Color::White);
 	m_scoreText.setString("Score: " + std::to_string(m_score));
 	m_scoreText.setPosition({10.f, 10.f});
 
 	m_gameOverText.setFont(m_font);
 	m_gameOverText.setCharacterSize(36);
-	m_gameOverText.setFillColor(sf::Color::White);
+	m_gameOverText.setFillColor(sf::Color::Black);
 	m_gameOverText.setString("GAME OVER");
 	sf::Rect<float> gameOverTextSize = m_gameOverText.getLocalBounds();
 	m_gameOverText.setPosition(
@@ -44,7 +45,7 @@ Game::Game()
 
 	m_restartCommandText.setFont(m_font);
 	m_restartCommandText.setCharacterSize(20);
-	m_restartCommandText.setFillColor(sf::Color::White);
+	m_restartCommandText.setFillColor(sf::Color::Black);
 	m_restartCommandText.setString("Press R to restart!");
 	sf::Rect<float> restartTextSize = m_restartCommandText.getLocalBounds();
 	m_restartCommandText.setPosition(
@@ -120,6 +121,7 @@ void Game::update(sf::Time deltaTime)
 void Game::render()
 {
 	m_window.clear();
+	m_background.draw(m_window);
 	m_apple.draw(m_window);
 	m_snake.draw(m_window);
 	m_window.draw(m_scoreText);

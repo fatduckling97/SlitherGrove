@@ -146,18 +146,54 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="apple.cpp" />
+    <ClCompile Include="background.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="snake.cpp" />
+    <ClCompile Include="TextureLoader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="apple.hpp" />
+    <ClInclude Include="background.hpp" />
     <ClInclude Include="direction.hpp" />
     <ClInclude Include="game.hpp" />
     <ClInclude Include="snake.hpp" />
+    <ClInclude Include="TextureLoader.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="src\apple.png" />
+    <Image Include="src\body_corner_downleft.png" />
+    <Image Include="src\body_corner_downright.png" />
+    <Image Include="src\body_corner_upleft.png" />
+    <Image Include="src\body_corner_upright.png" />
+    <Image Include="src\body_down.png" />
+    <Image Include="src\body_left.png" />
+    <Image Include="src\body_right.png" />
+    <Image Include="src\body_up.png" />
+    <Image Include="src\edge_corner.png" />
+    <Image Include="src\edge_down.png" />
+    <Image Include="src\edge_left.png" />
+    <Image Include="src\edge_right.png" />
+    <Image Include="src\edge_top.png" />
+    <Image Include="src\grass.png" />
+    <Image Include="src\head_down.png" />
+    <Image Include="src\head_eat_down.png" />
+    <Image Include="src\head_eat_left.png" />
+    <Image Include="src\head_eat_right.png" />
+    <Image Include="src\head_eat_up.png" />
+    <Image Include="src\head_left.png" />
+    <Image Include="src\head_right.png" />
+    <Image Include="src\head_up.png" />
+    <Image Include="src\tail_down.png" />
+    <Image Include="src\tail_left.png" />
+    <Image Include="src\tail_right.png" />
+    <Image Include="src\tail_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="src\nintendo.ttf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

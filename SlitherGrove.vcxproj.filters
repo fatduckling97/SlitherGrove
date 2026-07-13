@@ -27,6 +27,12 @@
     <ClCompile Include="apple.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="background.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureLoader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game.hpp">
@@ -41,8 +47,102 @@
     <ClInclude Include="direction.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="background.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureLoader.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="src\apple.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="src\body_corner_downleft.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="src\body_corner_downright.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="src\body_corner_upleft.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="src\body_corner_upright.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="src\body_down.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="src\body_left.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="src\body_right.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="src\body_up.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="src\head_down.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="src\head_eat_down.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="src\head_eat_left.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="src\head_eat_right.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="src\head_eat_up.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="src\head_left.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="src\head_right.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="src\head_up.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="src\tail_down.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="src\tail_left.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="src\tail_right.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="src\tail_up.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="src\edge_corner.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="src\edge_down.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="src\edge_left.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="src\edge_right.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="src\edge_top.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="src\grass.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="src\nintendo.ttf">
+      <Filter>Resource Files</Filter>
+    </Font>
   </ItemGroup>
 </Project>

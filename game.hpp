@@ -3,6 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include "snake.hpp"
 #include "apple.hpp"
+#include "background.hpp"
 
 
 class Game {
@@ -27,6 +28,7 @@ private:
 
 	Snake				m_snake;
 	Apple				m_apple;
+	Background			m_background;
 
 	int					m_score;
 
