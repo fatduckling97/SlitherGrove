@@ -1,4 +1,5 @@
 #include "game.hpp"
+#include "loaders.hpp"
 
 
 Game::Game()
@@ -19,11 +20,8 @@ Game::Game()
 	, m_restartCommandText(m_font)
 	, m_background(m_tileSize, m_boardWidth, m_boardHeight)
 {
-	if (!m_font.openFromFile("src\\nintendo.ttf"))
-	{
-		std::cerr << "Error load nintendo.ttf file!" << std::endl;
-		exit(-1);
-	}
+	// loading font
+	loadFont(m_font, "src\\nintendo.ttf");
 
 	m_scoreText.setFont(m_font);
 	m_scoreText.setCharacterSize(18);
@@ -54,7 +52,15 @@ Game::Game()
 			static_cast<float>((m_window.getSize().y / 2.f) + gameOverTextSize.size.y)
 		)
 	);
+
+	// Load Eating Sound
+	loadSoundBuffer(m_eatBuffer, "src\\chomp.wav");
+	m_eatSound.emplace(m_eatBuffer);
 	
+	// Load Bump Sound
+	loadSoundBuffer(m_bumpBuffer, "src\\bump.mp3");
+	m_bumpSound.emplace(m_bumpBuffer);
+
 	reset();
 }
 
@@ -102,17 +108,25 @@ void Game::update(sf::Time deltaTime)
 		return;
 	}
 
+	m_snake.setEating(
+		m_snake.getNextHeadPosition() == m_apple.getApplePosition()
+	);
+
 	m_snake.update(deltaTime);
 
 	if (!m_snake.isAlive())
 	{
+		m_bumpSound->play();
 		m_gameOver = true;
 	}
 
 	if (m_snake.getHeadPosition() == m_apple.getApplePosition())
 	{
+		m_eatSound->play();
+
 		m_snake.grow();
 		m_apple.spawn(m_snake.getSnakeBody());
+
 		m_score++;
 		m_scoreText.setString("Score: " + std::to_string(m_score));
 	}

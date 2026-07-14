@@ -1,6 +1,6 @@
 #include <cstdlib>
 #include "apple.hpp"
-#include "TextureLoader.hpp"
+#include "loaders.hpp"
 
 
 Apple::Apple() {}

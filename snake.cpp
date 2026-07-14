@@ -1,5 +1,5 @@
 #include "snake.hpp"
-#include "TextureLoader.hpp"
+#include "loaders.hpp"
 
 Snake::Snake() {};
 
@@ -15,11 +15,11 @@ Snake::Snake(int tileSize, int boardWidth, int boardHeight, float moveDelay)
 	loadTexture(m_snakeTexture.head.left, "src\\head_left.png");
 	loadTexture(m_snakeTexture.head.right, "src\\head_right.png");
 
-	// loading head eating snake textures (implement SOON)
-	//loadTexture(m_snakeTexture.headEat.up, "src\\head_eat_up.png");
-	//loadTexture(m_snakeTexture.headEat.down, "src\\head_eat_down.png");
-	//loadTexture(m_snakeTexture.headEat.left, "src\\head_eat_left.png");
-	//loadTexture(m_snakeTexture.headEat.right, "src\\head_eat_right.png");
+	// loading head eating snake textures 
+	loadTexture(m_snakeTexture.headEat.up, "src\\head_eat_up.png");
+	loadTexture(m_snakeTexture.headEat.down, "src\\head_eat_down.png");
+	loadTexture(m_snakeTexture.headEat.left, "src\\head_eat_left.png");
+	loadTexture(m_snakeTexture.headEat.right, "src\\head_eat_right.png");
 
 	// loading body textures
 	loadTexture(m_snakeTexture.body.up, "src\\body_up.png");
@@ -111,6 +111,37 @@ void Snake::grow()
 	m_shouldGrow = true;
 }
 
+sf::Vector2i Snake::getNextHeadPosition() const
+{
+	sf::Vector2i nextHead = getHeadPosition();
+
+	switch (m_nextDirection)
+	{
+	case Direction::Up:
+		nextHead.y--;
+		break;
+
+	case Direction::Down:
+		nextHead.y++;
+		break;
+
+	case Direction::Left:
+		nextHead.x--;
+		break;
+
+	case Direction::Right:
+		nextHead.x++;
+		break;
+	}
+
+	return nextHead;
+}
+
+void Snake::setEating(bool eating)
+{
+	m_isEating = eating;
+}
+
 void Snake::draw(sf::RenderWindow& window) 
 {
 	drawHead(window);
@@ -125,30 +156,60 @@ void Snake::draw(sf::RenderWindow& window)
 
 void Snake::drawHead(sf::RenderWindow& window)
 {
-	switch (m_currentDirection)
+	if (m_isEating)
 	{
-		case Direction::Up:
-			m_snakeHeadSprite->setTexture(m_snakeTexture.head.up);
-			break;
-		case Direction::Down:
-			m_snakeHeadSprite->setTexture(m_snakeTexture.head.down);
-			break;
-		case Direction::Left:
-			m_snakeHeadSprite->setTexture(m_snakeTexture.head.left);
-			break;
-		case Direction::Right:
-			m_snakeHeadSprite->setTexture(m_snakeTexture.head.right);
-			break;
+		switch (m_currentDirection)
+		{
+			case Direction::Up:
+				m_snakeHeadEatSprite->setTexture(m_snakeTexture.headEat.up);
+				break;
+			case Direction::Down:
+				m_snakeHeadEatSprite->setTexture(m_snakeTexture.headEat.down);
+				break;
+			case Direction::Left:
+				m_snakeHeadEatSprite->setTexture(m_snakeTexture.headEat.left);
+				break;
+			case Direction::Right:
+				m_snakeHeadEatSprite->setTexture(m_snakeTexture.headEat.right);
+				break;
+		}
+
+		m_snakeHeadEatSprite->setPosition(
+			sf::Vector2f(
+				static_cast<float>(m_snakeBody.front().x * m_tileSize),
+				static_cast<float>(m_snakeBody.front().y * m_tileSize)
+			)
+		);
+
+		window.draw(*m_snakeHeadEatSprite);
 	}
+	else
+	{
+		switch (m_currentDirection)
+		{
+			case Direction::Up:
+				m_snakeHeadSprite->setTexture(m_snakeTexture.head.up);
+				break;
+			case Direction::Down:
+				m_snakeHeadSprite->setTexture(m_snakeTexture.head.down);
+				break;
+			case Direction::Left:
+				m_snakeHeadSprite->setTexture(m_snakeTexture.head.left);
+				break;
+			case Direction::Right:
+				m_snakeHeadSprite->setTexture(m_snakeTexture.head.right);
+				break;
+		}
 
-	m_snakeHeadSprite->setPosition(
-		sf::Vector2f(
-			static_cast<float>(m_snakeBody.front().x * m_tileSize),
-			static_cast<float>(m_snakeBody.front().y * m_tileSize)
-		)
-	);
+		m_snakeHeadSprite->setPosition(
+			sf::Vector2f(
+				static_cast<float>(m_snakeBody.front().x * m_tileSize),
+				static_cast<float>(m_snakeBody.front().y * m_tileSize)
+			)
+		);
 
-	window.draw(*m_snakeHeadSprite);
+		window.draw(*m_snakeHeadSprite);
+	}
 }
 
 void Snake::drawBody(sf::RenderWindow& window, size_t idx)

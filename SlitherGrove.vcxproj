@@ -150,7 +150,7 @@
     <ClCompile Include="game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="snake.cpp" />
-    <ClCompile Include="TextureLoader.cpp" />
+    <ClCompile Include="loaders.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="apple.hpp" />
@@ -158,7 +158,7 @@
     <ClInclude Include="direction.hpp" />
     <ClInclude Include="game.hpp" />
     <ClInclude Include="snake.hpp" />
-    <ClInclude Include="TextureLoader.hpp" />
+    <ClInclude Include="loaders.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore" />
@@ -194,6 +194,10 @@
   </ItemGroup>
   <ItemGroup>
     <Font Include="src\nintendo.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="src\bump.mp3" />
+    <Media Include="src\chomp.wav" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

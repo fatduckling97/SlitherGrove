@@ -63,6 +63,8 @@ public:
 	void								drawHead(sf::RenderWindow& window);
 	void								drawBody(sf::RenderWindow& window, size_t idx);
 	void								drawTail(sf::RenderWindow& window);
+
+	void								setEating(bool eating);
 	
 	void								changeDirection(sf::Keyboard::Key key);
 	void								update(sf::Time deltaTime);
@@ -72,6 +74,7 @@ public:
 	bool 								checkWallCollision() const;
 
 	sf::Vector2i						getHeadPosition() const;
+	sf::Vector2i						getNextHeadPosition() const;
 	sf::Vector2i						getTailPosition() const;
 	const std::vector<sf::Vector2i>&	getSnakeBody() const;
 	size_t								getLength() const;
@@ -101,4 +104,5 @@ private:
 	
 	bool								m_alive;
 	bool								m_shouldGrow;
+	bool								m_isEating			= false;
 };

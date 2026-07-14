@@ -1,5 +1,5 @@
 #include "background.hpp"
-#include "TextureLoader.hpp"
+#include "loaders.hpp"
 #include <iostream>
 
 
